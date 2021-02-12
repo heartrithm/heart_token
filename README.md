@@ -7,11 +7,11 @@ The HEART ERC20 governance token was created for directing the flow of social im
 
 ### About HeartRithm
 
-<img width="75" align="right" src="assets/heartrithm-logo.png">
+<img width="50" align="right" src="assets/heartrithm-logo.png">
 
 [HeartRithm](https://www.heartrithm.com) turns code into money in the cryptocurrency ecosystem. We use a combination of algorithmic trading, automated code robots, and other internal platforms for optimizing yield and generating alpha.
 
-HeartRithm aims to be a Regenerative Engine for Social Impact, scaling up to 50% of our revenues to be driven to social impact causes.
+HeartRithm aims to be a "regenerative engine for social impact" by scaling up to 50% of our revenues to be driven to social impact causes.
 
 ## Contract details
 
