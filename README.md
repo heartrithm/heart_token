@@ -20,7 +20,7 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 ### TODO
 #### Contract creation
 * [ ] Decide on tokenomics (available supply, decimals, fixed vs capped, etc)
-* [ ] Decide on token generator / creator
+* [x] Decide on token generator / creator. [Zokyo](https://www.zokyo.io/)
 * [ ] Decide on sidecar contract mechanism 
 * [ ] Deploy on Testnet
 * [ ] Audit
