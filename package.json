@@ -1,0 +1,25 @@
+{
+  "name": "heart-rithm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.0.0",
+    "eth-token-recover": "^4.0.0"
+  },
+  "scripts": {
+    "compile": "truffle compile",
+    "coverage": "npx truffle run coverage --solcoverjs ./.solcover.js --network coverage",
+    "test": "truffle test",
+    "prettier": "prettier --write 'contracts/**/*.sol'"
+  },
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.10",
+    "chai": "^4.3.4",
+    "dotenv": "^8.2.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.9",
+    "solidity-coverage": "^0.7.16",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "truffle-plugin-verify": "^0.5.7"
+  }
+}
