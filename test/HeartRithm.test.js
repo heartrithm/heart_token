@@ -36,13 +36,13 @@ contract('HeartRithm', function (accounts) {
     expect(await heart.decimals()).to.be.bignumber.equal('18');
   });
 
-  shouldBehaveLikeERC20('HeartRithm', initialSupply, initialHolder, recipient, anotherAccount);
+  shouldBehaveLikeERC20('ERC20', initialSupply, initialHolder, recipient, anotherAccount);
 
   describe('_mint', function () {
     const amount = new BN(50);
     it('rejects a null account', async function () {
       await expectRevert(
-        heart.mint(ZERO_ADDRESS, amount), 'HeartRithm: mint to the zero address',
+        heart.mint(ZERO_ADDRESS, amount), 'ERC20: mint to the zero address',
       );
     });
 
@@ -80,13 +80,13 @@ contract('HeartRithm', function (accounts) {
   describe('_burn', function () {
     it('rejects a null account', async function () {
       await expectRevert(heart.burn(ZERO_ADDRESS, new BN(1)),
-        'HeartRithm: burn from the zero address');
+        'ERC20: burn from the zero address');
     });
 
     describe('for a non zero account', function () {
       it('rejects burning more than balance', async function () {
         await expectRevert(heart.burn(
-          initialHolder, initialSupply.addn(1)), 'HeartRithm: burn amount exceeds balance',
+          initialHolder, initialSupply.addn(1)), 'ERC20: burn amount exceeds balance',
         );
       });
 
@@ -129,13 +129,13 @@ contract('HeartRithm', function (accounts) {
   });
 
   describe('_transfer', function () {
-    shouldBehaveLikeERC20Transfer('HeartRithm', initialHolder, recipient, initialSupply, function (from, to, amount) {
+    shouldBehaveLikeERC20Transfer('ERC20', initialHolder, recipient, initialSupply, function (from, to, amount) {
       return heart.transfer(from, to, amount);
     });
   });
 
   describe('_approve', function () {
-    shouldBehaveLikeERC20Approve('HeartRithm', initialHolder, recipient, initialSupply, function (owner, spender, amount) {
+    shouldBehaveLikeERC20Approve('ERC20', initialHolder, recipient, initialSupply, function (owner, spender, amount) {
       return heart.approve(owner, spender, amount);
     });
   });
