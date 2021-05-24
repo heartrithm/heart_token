@@ -7,7 +7,8 @@ module.exports = {
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 7545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)  
+      network_id: "*",       // Any network (default: none) 
+      gasPrice: 30000000000, 
     },
     coverage: {
       host: "localhost",
@@ -22,7 +23,7 @@ module.exports = {
       },
       network_id: 3,  
       gas: 4000000,
-      gasPrice: 21000000000
+      gasPrice: 59000000000
     },
     mainnet: {
       provider:function () {
@@ -30,7 +31,7 @@ module.exports = {
       },     
       network_id: 1,
       gas: 3000000,
-      gasPrice: 180000000000,
+      gasPrice: 59000000000,
       skipDryRun: true,
     },
   },
