@@ -30,7 +30,7 @@ To run tests and generate test coverage, run:
 $ npm run coverage
 ```
 ## Deploying
-* Check is gas price set correctly
+* Check is gas price set correctly in truffle-config file in describing mainnet network
   * Go to the link https://etherscan.io/gastracker
 * Install all packages
   * Run command:
@@ -58,4 +58,32 @@ $ truffle migrate --network mainnet
 ```
 $ truffle run verify HeartRithm --network mainnet
 ```
----
+# Main functions
+## totalSupply()
+This function allows to calculate and return the total amount of the token that exists in circulation.
+## balanceOf()
+This function allows a smart contract to store and return the balance of the provided address.
+## approve()
+When calling this function, the owner of the contract authorizes, or approves, the given address to withdraw instances of the token from the owner’s address.
+## transfer()
+This function lets the owner of the contract send a given amount of the token to another address just like a conventional cryptocurrency transaction.
+## transferFrom()
+This function allows a smart contract to automate the transfer process and send a given amount of the token on behalf of the owner.
+## mint()
+Creates amount tokens and assigns them to account, increasing the total supply.
+Destroys amount tokens from account, reducing the total supply.
+## pause()
+This function allows to pauses all token transfers.
+## unpause()
+This function allows to unpauses all token transfers. Users can transfer tokens again.
+## recoverERC20()
+TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error.
+# How to use the functionality
+Go to your contract on Etherscan by entering the address in the search box. On the tab "Contract" go to the "Write Contract" tab.  
+Nex step is connect your wallet. Tap on the "Connect to Web3" button and choose your wallet. Then you can execute token operations whitch are below on that Etherscan page.
+
+For example:  
+To recover ERC20 token tap on the "recoverERC20" and enter the address of token that must be transferred from contract address and amount of this tokens and tap button "Write".  
+To mint tokens tap on the "mint" button, enter the address of recipient and amount of tokens. Then click "Write".  
+To see balance of your or another user account go to the "Read Contract" tab, enter address of user and tap "Query". Also you can add token to your wallet and view the information there.
+
