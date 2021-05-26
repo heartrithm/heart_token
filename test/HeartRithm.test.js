@@ -12,13 +12,19 @@ const {
 const HeartRithm = artifacts.require('HeartRithm');
 
 contract('HeartRithm', function (accounts) {
-  const [ initialHolder, recipient, anotherAccount ] = accounts;
+  const [ initialHolder, recipient, anotherAccount, other ] = accounts;
 
   const name = 'HeartRithm';
   const symbol = 'HEART';
 
   const initialSupply = ether('100');
 
+  const amount = new BN('5000');
+
+  const DEFAULT_ADMIN_ROLE = '0x0000000000000000000000000000000000000000000000000000000000000000';
+  const MINTER_ROLE = web3.utils.soliditySha3('MINTER_ROLE');
+  const PAUSER_ROLE = web3.utils.soliditySha3('PAUSER_ROLE');
+  
   beforeEach(async function () {
     heart = await HeartRithm.new();
     await heart.mint(initialHolder, initialSupply);
@@ -54,7 +60,7 @@ contract('HeartRithm', function (accounts) {
 
       it('only owner can mint tokent', async function () {
         await expectRevert(heart.mint(recipient, amount, { from: recipient }),
-        'Ownable: caller is not the owner');
+        'ERC20PresetMinterPauser: must have minter role to mint');
       });
 
       it('increments totalSupply', async function () {
@@ -78,28 +84,18 @@ contract('HeartRithm', function (accounts) {
   });
 
   describe('_burn', function () {
-    it('rejects a null account', async function () {
-      await expectRevert(heart.burn(ZERO_ADDRESS, new BN(1)),
-        'ERC20: burn from the zero address');
-    });
-
     describe('for a non zero account', function () {
       it('rejects burning more than balance', async function () {
         await expectRevert(heart.burn(
-          initialHolder, initialSupply.addn(1)), 'ERC20: burn amount exceeds balance',
+          initialSupply.addn(1)), 'ERC20: burn amount exceeds balance',
         );
       });
 
       const describeBurn = function (description, amount) {
         describe(description, function () {
           beforeEach('burning', async function () {
-            const { logs } = await heart.burn(initialHolder, amount);
+            const { logs } = await heart.burn(amount);
             this.logs = logs;
-          });
-
-          it('only owner can burn tokent', async function () {
-            await expectRevert(heart.burn(recipient, amount, { from: recipient }),
-            'Ownable: caller is not the owner');
           });
 
           it('decrements totalSupply', async function () {
@@ -137,6 +133,96 @@ contract('HeartRithm', function (accounts) {
   describe('_approve', function () {
     shouldBehaveLikeERC20Approve('ERC20', initialHolder, recipient, initialSupply, function (owner, spender, amount) {
       return heart.approve(owner, spender, amount);
+    });
+  });
+
+  it('deployer has the default admin role', async function () {
+    expect(await heart.getRoleMemberCount(DEFAULT_ADMIN_ROLE)).to.be.bignumber.equal('1');
+    expect(await heart.getRoleMember(DEFAULT_ADMIN_ROLE, 0)).to.equal(initialHolder);
+  });
+
+  it('deployer has the minter role', async function () {
+    expect(await heart.getRoleMemberCount(MINTER_ROLE)).to.be.bignumber.equal('1');
+    expect(await heart.getRoleMember(MINTER_ROLE, 0)).to.equal(initialHolder);
+  });
+
+  it('deployer has the pauser role', async function () {
+    expect(await heart.getRoleMemberCount(PAUSER_ROLE)).to.be.bignumber.equal('1');
+    expect(await heart.getRoleMember(PAUSER_ROLE, 0)).to.equal(initialHolder);
+  });
+
+  it('minter and pauser role admin is the default admin', async function () {
+    expect(await heart.getRoleAdmin(MINTER_ROLE)).to.equal(DEFAULT_ADMIN_ROLE);
+    expect(await heart.getRoleAdmin(PAUSER_ROLE)).to.equal(DEFAULT_ADMIN_ROLE);
+  });
+
+  describe('minting', function () {
+    it('deployer can mint tokens', async function () {
+      const receipt = await heart.mint(other, amount, { from: initialHolder });
+      expectEvent(receipt, 'Transfer', { from: ZERO_ADDRESS, to: other, value: amount });
+
+      expect(await heart.balanceOf(other)).to.be.bignumber.equal(amount);
+    });
+
+    it('other accounts cannot mint tokens', async function () {
+      await expectRevert(
+        heart.mint(other, amount, { from: other }),
+        'ERC20PresetMinterPauser: must have minter role to mint',
+      );
+    });
+  });
+
+  describe('pausing', function () {
+    it('deployer can pause', async function () {
+      const receipt = await heart.pause({ from: initialHolder });
+      expectEvent(receipt, 'Paused', { account: initialHolder });
+
+      expect(await heart.paused()).to.equal(true);
+    });
+
+    it('deployer can unpause', async function () {
+      await heart.pause({ from: initialHolder });
+
+      const receipt = await heart.unpause({ from: initialHolder });
+      expectEvent(receipt, 'Unpaused', { account: initialHolder });
+
+      expect(await heart.paused()).to.equal(false);
+    });
+
+    it('cannot mint while paused', async function () {
+      await heart.pause({ from: initialHolder });
+
+      await expectRevert(
+        heart.mint(other, amount, { from: initialHolder }),
+        'ERC20Pausable: token transfer while paused',
+      );
+    });
+
+    it('other accounts cannot pause', async function () {
+      await expectRevert(
+        heart.pause({ from: other }),
+        'ERC20PresetMinterPauser: must have pauser role to pause',
+      );
+    });
+
+    it('other accounts cannot unpause', async function () {
+      await heart.pause({ from: initialHolder });
+
+      await expectRevert(
+        heart.unpause({ from: other }),
+        'ERC20PresetMinterPauser: must have pauser role to unpause',
+      );
+    });
+  });
+
+  describe('burning', function () {
+    it('holders can burn their tokens', async function () {
+      await heart.mint(other, amount, { from: initialHolder });
+
+      const receipt = await heart.burn(amount.subn(1), { from: other });
+      expectEvent(receipt, 'Transfer', { from: other, to: ZERO_ADDRESS, value: amount.subn(1) });
+
+      expect(await heart.balanceOf(other)).to.be.bignumber.equal('1');
     });
   });
 
