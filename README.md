@@ -3,7 +3,7 @@
 ### HEART Governance token
 <img width="100" align="right" src="assets/heart-token-logo.png">
 
-The HEART ERC20 governance token was created for directing the flow of social impact resources from [HeartRithm](https://www.heartrithm.com)'s regenerative engine for social impact. Token holders will be able to submit philanthropic projects to be considered for voting, and then vote on the allocation of social impact funding. Learn more at [www.heartrithm.com/heart-token](https://www.heartrithm.com/heart-token). 
+The HEART ERC777 (ERC20 compatible) governance token was created for directing the flow of social impact resources from [HeartRithm](https://www.heartrithm.com)'s regenerative engine for social impact. Token holders will be able to submit philanthropic projects to be considered for voting, and then vote on the allocation of social impact funding. Learn more at [www.heartrithm.com/heart-token](https://www.heartrithm.com/heart-token). 
 
 ### About HeartRithm
 
@@ -19,10 +19,9 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 
 ### TODO
 #### Contract creation
-* [ ] Decide on tokenomics (available supply, decimals, fixed vs capped, etc)
-* [x] Decide on token generator / creator. [Zokyo](https://www.zokyo.io/)
-* [ ] Decide on sidecar contract mechanism 
-* [ ] Deploy on Testnet
+* [x] Decide on tokenomics (available supply, decimals, fixed vs capped, etc)
+* [x] Decide on sidecar contract mechanism 
+* [x] Deploy on Testnet
 * [ ] Audit
 
 #### Pre funding phase
