@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-from brownie import HeartRithmToken, accounts
+from brownie import HeartToken, accounts
 
 
 def main():
-    return HeartRithmToken.deploy({"from": accounts[0]})
+    return HeartToken.deploy({"from": accounts[0]})
