@@ -40,3 +40,27 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 #### Listings
 * [ ] Coingecko
 * [ ] Coinmarketcap
+
+
+
+## Development
+
+#### Installation
+
+Python 
+
+1. Set up the python virtual env of your choice
+1. `pip install -r requirements-dev.txt` (which will install eth-brownie)
+
+Node/Ganache
+
+1. Install node / npm (via [nvm](https://github.com/nvm-sh/nvm) recommended)
+1. Install [ganache](https://www.trufflesuite.com/ganache) for a local blockchain (`npm install -g ganache-cli`)
+
+#### Brownie
+
+We use [brownie](https://eth-brownie.readthedocs.io/en/stable/) for python based smart contract development, testing, and deployment
+
+Run tests with `brownie test` 
+
+
