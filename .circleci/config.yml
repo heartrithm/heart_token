@@ -47,10 +47,6 @@ jobs:
             npm install -g ganache-cli
 
       - run:
-          name: Set up brownie modules
-          command: brownie pm install OpenZeppelin/openzeppelin-contracts@4.1.0
-
-      - run:
           name: Run tests
           command: | 
             export NVM_DIR="$HOME/.nvm" && . $NVM_DIR/nvm.sh
