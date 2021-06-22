@@ -37,17 +37,14 @@ jobs:
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
 
       - run:
-          name: Install node via nvm
+          name: Install node via nvm and set up ganache
           command: |
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-            export NVM_DIR="$HOME/.nvm"
-            . $NVM_DIR/nvm.sh
+            export NVM_DIR="$HOME/.nvm" && . $NVM_DIR/nvm.sh
+
             # Install the latest node and npm
             nvm install stable 
-      - run:
-          # Local blockchain
-          name: Install ganache
-          command: npm install -g ganache-cli
+            npm install -g ganache-cli
 
       - run:
           name: Set up brownie modules
@@ -55,4 +52,6 @@ jobs:
 
       - run:
           name: Run tests
-          command: brownie test
+          command: | 
+            export NVM_DIR="$HOME/.nvm" && . $NVM_DIR/nvm.sh
+            brownie test
