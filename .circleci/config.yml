@@ -37,13 +37,13 @@ jobs:
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
 
       - run:
-          name: Install node
+          name: Install node via nvm
           command: |
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-            nvm install stable 
             export NVM_DIR="$HOME/.nvm"
             $NVM_DIR/nvm.sh
-
+            # Install the latest node and npm
+            nvm install stable 
       - run:
           # Local blockchain
           name: Install ganache
