@@ -1,9 +1,13 @@
 # HEART token
 
+[![CircleCI](https://circleci.com/gh/heartrithm/heart_token.svg?style=svg)](https://circleci.com/gh/heartrithm/heart_token)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 ### HEART Governance token
 <img width="100" align="right" src="assets/heart-token-logo.png">
 
-The HEART ERC20 governance token was created for directing the flow of social impact resources from [HeartRithm](https://www.heartrithm.com)'s regenerative engine for social impact. Token holders will be able to submit philanthropic projects to be considered for voting, and then vote on the allocation of social impact funding. Learn more at [www.heartrithm.com/heart-token](https://www.heartrithm.com/heart-token). 
+The HEART ERC20 governance token was created for directing the flow of social impact resources from [HeartRithm](https://www.heartrithm.com)'s regenerative engine for social impact. Token holders will be able to submit philanthropic projects to be considered for voting, and then vote on the allocation of social impact funding. Learn more at [www.heartrithm.com/heart-token](https://www.heartrithm.com/heart-token).
 
 ### About HeartRithm
 
@@ -20,7 +24,7 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 ### TODO
 #### Contract creation
 * [x] Decide on tokenomics (available supply, decimals, fixed vs capped, etc)
-* [x] Decide on sidecar contract mechanism 
+* [x] Decide on sidecar contract mechanism
 * [x] Deploy on Testnet
 * [ ] Audit
 
@@ -29,7 +33,7 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 * [ ] Deploy on MainNet
 * [ ] Verify ownership on Etherscan
 * [ ] Verify contract on Etherscan
-* [ ] Add [Contract Metadata](https://info.etherscan.com/how-to-update-token-information-on-token-page/) (symbol, icon) on Etherscan 
+* [ ] Add [Contract Metadata](https://info.etherscan.com/how-to-update-token-information-on-token-page/) (symbol, icon) on Etherscan
 * [ ] Website (heartrithm.com/heart-token)
 
 #### Funding phase
@@ -47,7 +51,7 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 
 #### Installation
 
-Python 
+Python
 
 1. Set up the python virtual env of your choice
 1. `pip install -r requirements-dev.txt` (which will install eth-brownie)
@@ -61,6 +65,4 @@ Node/Ganache
 
 We use [brownie](https://eth-brownie.readthedocs.io/en/stable/) for python based smart contract development, testing, and deployment
 
-Run tests with `brownie test` 
-
-
+Run tests with `brownie test`
