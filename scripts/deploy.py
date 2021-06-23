@@ -4,4 +4,4 @@ from brownie import HeartToken, accounts
 
 
 def main():
-    return HeartToken.deploy({"from": accounts[0]})
+    return HeartToken.deploy(1e21, {"from": accounts[0]})

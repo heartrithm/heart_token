@@ -12,9 +12,4 @@ def isolate(fn_isolation):
 
 @pytest.fixture(scope="module")
 def token(HeartToken, accounts):
-    t = HeartToken.deploy({"from": accounts[0]})
-
-    # Create an initial supply and assign it to owner
-    t.mint(accounts[0], 1e21)
-
-    return t
+    return HeartToken.deploy(1e21, {"from": accounts[0]})
