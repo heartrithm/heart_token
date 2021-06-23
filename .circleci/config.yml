@@ -9,8 +9,8 @@ orbs:
 
 workflows:
   sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run. 
-    # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
+    # Inside the workflow, you define the jobs you want to run.
+    # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
     jobs:
       - build-and-test
 
@@ -43,11 +43,11 @@ jobs:
             export NVM_DIR="$HOME/.nvm" && . $NVM_DIR/nvm.sh
 
             # Install the latest node and npm
-            nvm install stable 
+            nvm install stable
             npm install -g ganache-cli
 
       - run:
           name: Run tests
-          command: | 
+          command: |
             export NVM_DIR="$HOME/.nvm" && . $NVM_DIR/nvm.sh
-            brownie test
+            brownie test -C
