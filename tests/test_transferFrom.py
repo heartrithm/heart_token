@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import brownie
 
 
@@ -39,9 +38,7 @@ def test_caller_approval_affected(accounts, token):
     token.approve(accounts[1], approval_amount, {"from": accounts[0]})
     token.transferFrom(accounts[0], accounts[2], transfer_amount, {"from": accounts[1]})
 
-    assert (
-        token.allowance(accounts[0], accounts[1]) == approval_amount - transfer_amount
-    )
+    assert token.allowance(accounts[0], accounts[1]) == approval_amount - transfer_amount
 
 
 def test_receiver_approval_not_affected(accounts, token):
