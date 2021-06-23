@@ -22,13 +22,6 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 (link to source) (link to etherscan)
 
 ### TODO
-#### Contract creation
-* [x] Decide on tokenomics (available supply, decimals, fixed vs capped, etc)
-* [x] Decide on sidecar contract mechanism
-* [x] Deploy on Testnet
-* [ ] Audit
-
-#### Pre funding phase
 
 * [ ] Deploy on MainNet
 * [ ] Verify ownership on Etherscan
@@ -45,8 +38,6 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 * [ ] Coingecko
 * [ ] Coinmarketcap
 
-
-
 ## Development
 
 #### Installation
@@ -54,7 +45,8 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 Python
 
 1. Set up the python virtual env of your choice
-1. `pip install -r requirements-dev.txt` (which will install eth-brownie)
+1. `pip install -r requirements-dev.txt`
+1. Set up git pre-commit hooks with `pre-commit install`
 
 Node/Ganache
 
