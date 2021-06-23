@@ -3,6 +3,8 @@
 [![CircleCI](https://circleci.com/gh/heartrithm/heart_token.svg?style=svg)](https://circleci.com/gh/heartrithm/heart_token)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ### HEART Governance token
 <img width="100" align="right" src="assets/heart-token-logo.png">
