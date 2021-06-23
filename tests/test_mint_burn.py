@@ -1,3 +1,7 @@
+import brownie
+import pytest
+
+
 def test_mint(accounts, token):
     start_balance = token.balanceOf(accounts[0])
     token.mint(accounts[1], 42)
@@ -19,5 +23,9 @@ def test_burn_from(accounts, token):
 def test_burn(accounts, token):
     start_balance = token.balanceOf(accounts[0])
     token.burn(10)
+
+    with pytest.raises(brownie.exceptions.VirtualMachineError) as excinfo:
+        token.burn(start_balance)
+        assert "burn amount exceeds balance" in str(excinfo)
 
     assert token.balanceOf(accounts[0]) == start_balance - 10

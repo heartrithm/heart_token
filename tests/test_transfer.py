@@ -1,4 +1,5 @@
 import brownie
+import pytest
 
 
 def test_sender_balance_decreases(accounts, token):
@@ -8,6 +9,16 @@ def test_sender_balance_decreases(accounts, token):
     token.transfer(accounts[1], amount, {"from": accounts[0]})
 
     assert token.balanceOf(accounts[0]) == sender_balance - amount
+
+
+def test_transfer_amount_exceeds_balance(accounts, token):
+    amount = token.balanceOf(accounts[0])
+
+    with pytest.raises(brownie.exceptions.VirtualMachineError) as excinfo:
+        token.transfer(accounts[1], amount + 1, {"from": accounts[0]})
+        assert "transfer amount exceeds balance" in str(excinfo)
+
+    assert amount == token.balanceOf(accounts[0])
 
 
 def test_receiver_balance_increases(accounts, token):
