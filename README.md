@@ -21,14 +21,16 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 
 ## Contract details
 
-(link to source) (link to etherscan)
+* [Contract on Etherscan](https://etherscan.io/token/0xa0ab59f5911dd47d774719504ca195474cdaf3fa)
+* [Source Code](contracts/HeartRithm.sol)
+* [Contract Owner](https://etherscan.io/address/0x4ea127d58ceb19346a1bdeb2a2a1b09bfd83d04d)
 
 ### TODO
 
 * [x] Deploy on MainNet
 * [x] Verify ownership on Etherscan
 * [x] Verify contract on Etherscan
-* [x] Add [Contract Metadata](https://info.etherscan.com/how-to-update-token-information-on-token-page/) (symbol, icon) on Etherscan
+* [x] Add [Contract Metadata](https://info.etherscan.com/how-to-update-token-information-on-token-page/) (symbol, icon) on Etherscan (submitted 6/23)
 
 #### Funding phase
 * [ ] Create Liquidity Pools on Dexes (note this establishes price, based on how much liquidity is added on either side of the pool)
