@@ -22,7 +22,7 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 ## Contract details
 
 * [Contract on Etherscan](https://etherscan.io/token/0xa0ab59f5911dd47d774719504ca195474cdaf3fa)
-* [Source Code](contracts/HeartRithm.sol)
+* [Source Code](contracts/HeartToken.sol)
 * [Contract Owner](https://etherscan.io/address/0x4ea127d58ceb19346a1bdeb2a2a1b09bfd83d04d)
 
 ### TODO
