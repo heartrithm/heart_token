@@ -56,6 +56,16 @@ Node/Ganache
 1. Install node / npm (via [nvm](https://github.com/nvm-sh/nvm) recommended)
 1. Install [ganache](https://www.trufflesuite.com/ganache) for a local blockchain (`npm install -g ganache-cli`)
 
+#### Formatting/linting
+
+Install prettier with `npm install -g prettier prettier-plugin-solidity`
+
+`prettier --write $Contract.sol`
+
+Install solhint with `npm install -g solhint`
+
+`solhint $Contract.sol`
+
 #### Brownie
 
 We use [brownie](https://eth-brownie.readthedocs.io/en/stable/) for python based smart contract development, testing, and deployment
