@@ -2,15 +2,46 @@
 
 pragma solidity 0.8.3;
 
+
+
 import "OpenZeppelin/openzeppelin-contracts@4.2.0/contracts/token/ERC20/extensions/ERC20VotesComp.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.2.0/contracts/access/AccessControlEnumerable.sol";
 import "OpenZeppelin/openzeppelin-contracts@4.2.0/contracts/security/Pausable.sol";
+
 
 contract HeartToken is AccessControlEnumerable, ERC20VotesComp, Pausable {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-    constructor(uint256 initialSupply) ERC20("HeartRithm", "HEART") ERC20Permit("HeartRithm") {
+    /**
+    @title HeartRithm HEART token
+    @author Nick Sullivan
+    @notice 
+
+    The HEART ERC20 governance token was created for directing the flow of social impact resources from HeartRithm's
+    regenerative engine for social impact. Token holders will be able to submit philanthropic projects to be considered
+    for voting, and then vote on the allocation of social impact funding. Learn more at www.heartrithm.com/heart-token
+
+    About HeartRithm
+    HeartRithm turns code into money in the cryptocurrency ecosystem. We use a combination of algorithmic trading,
+    autmated cde robots, and other internal platforms for optimizing yield and generating alpha.
+
+    HeartRithm aims to be a "regenerative engine for social impact" by scaling up to 50% of our revenues to be driven
+    to social impact causes.
+
+    @dev 
+    Technical notes:
+    * We use OpenZeppelin's standard libraries for ERC20 functionality, version 4.2
+    * We also use OpenZeppelin's implementation of ERC20Votes was use for the governance functionality
+    * We chose to use the "COMP" compatible version, ERC20VotesComp, to be be compatible with industry tooling
+    */
+
+    /** 
+     * @param name the name of the token (HeartRithm)
+     * @param symbol the symbole of the token  (HEART)
+     * @param initialSupply the amount of tokens that will be minted to the owner upon creation
+     */
+    constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) ERC20Permit(name) {
         // Assign the contract creator to all the roles
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(MINTER_ROLE, _msgSender());

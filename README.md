@@ -19,6 +19,12 @@ The HEART ERC20 governance token was created for directing the flow of social im
 
 HeartRithm aims to be a "regenerative engine for social impact" by scaling up to 50% of our revenues to be driven to social impact causes.
 
+### Technical notes
+
+* We use [OpenZeppelin](https://openzeppelin.com/)'s standard libraries for ERC20 functionality, version 4.2
+* We also use OpenZeppelins implementation of ERC20Votes was use for the governance functionality
+* We chose to use the "COMP" compatible version, ERC20VotesComp, to be be compatible with industry tooling
+
 ## Contract details
 
 * [Contract on Etherscan](https://etherscan.io/token/0xa0ab59f5911dd47d774719504ca195474cdaf3fa)
