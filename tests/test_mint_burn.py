@@ -20,6 +20,12 @@ def test_burn_from(accounts, token):
     assert token.balanceOf(accounts[0]) == 1000000000000000000025
 
 
+def test_mint_permissions(accounts, token):
+    with pytest.raises(brownie.exceptions.VirtualMachineError) as excinfo:
+        token.snapshot({"from": accounts[1]})
+        assert "must have minter role to mint" in str(excinfo)
+
+
 def test_burn(accounts, token):
     start_balance = token.balanceOf(accounts[0])
     token.burn(10)
