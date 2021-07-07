@@ -113,9 +113,7 @@ contract HeartToken is AccessControlEnumerable, ERC20VotesComp, Pausable {
         address from,
         address to,
         uint256 amount
-    ) internal virtual override {
+    ) internal virtual override whenNotPaused { // Only allow transfers when not paused
         super._beforeTokenTransfer(from, to, amount);
-
-        require(!paused(), "ERC20Pausable: token transfer while paused");
     }
 }
