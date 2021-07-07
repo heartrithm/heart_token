@@ -8,7 +8,7 @@ Prep:
 #### Test net deployment
 
 Initial supply is the number of tokens plus 18 decimals.
-42e27 = 42M tokens
+42e24 = 42M tokens
 
 ```sh
 # set up
@@ -28,11 +28,11 @@ brownie console --network=ropsten
 >>> from brownie.network import gas_price
 >>> gas_price(gas_strategy)
 
-# Pull in the wallet for the supplied private key. This is the "owner" of the smart contract
->>> test_wallet = accounts.add("$testnet_private_key")
+# Pull in the wallet for the supplied private key - this is the "owner" of the smart contract
+>>> wallet = accounts.add("$private_key")
 
 # Deploy the smart contract to the network
->>> HeartToken.deploy("HeartRithm", "HEART", 42e24, {'from': test_wallet}, publish_source=True)
+>>> HeartToken.deploy("HeartRithm", "HEART", 42e24, {'from': wallet}, publish_source=True)
 
 ```
 
