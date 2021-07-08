@@ -20,14 +20,6 @@ brownie console --network=ropsten
 
 ```python
 
-# Set up the gas to "fast"
->>> from brownie.network.gas.strategies import GasNowStrategy
->>> gas_strategy = GasNowStrategy("fast")
-
-# Set default gas strategy for all transactions
->>> from brownie.network import gas_price
->>> gas_price(gas_strategy)
-
 # Pull in the wallet for the supplied private key - this is the "owner" of the smart contract
 >>> wallet = accounts.add("$private_key")
 
