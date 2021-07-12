@@ -10,4 +10,4 @@ def isolate(fn_isolation):
 
 @pytest.fixture(scope="module")
 def token(HeartToken, accounts):
-    return HeartToken.deploy("HeartRithm", "HEART", 1e21, {"from": accounts[0]})
+    return HeartToken.deploy("HeartRithm", "HEART", 42e24, {"from": accounts[0]})

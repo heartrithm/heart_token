@@ -12,12 +12,14 @@ def test_mint(accounts, token):
 
 
 def test_burn_from(accounts, token):
+    start_balance = token.balanceOf(accounts[0])
+
     token.mint(accounts[0], 75)
     token.increaseAllowance(accounts[0], 75)
     token.decreaseAllowance(accounts[0], 25)
     token.burnFrom(accounts[0], 50)
 
-    assert token.balanceOf(accounts[0]) == 1000000000000000000025
+    assert token.balanceOf(accounts[0]) == start_balance + 25
 
 
 def test_mint_permissions(accounts, token):
