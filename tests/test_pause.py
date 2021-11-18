@@ -14,3 +14,13 @@ def test_pause(accounts, token):
 
     assert token.unpause()
     assert token.paused() is False
+
+
+def test_pause_permissions(accounts, token):
+    with pytest.raises(brownie.exceptions.VirtualMachineError) as excinfo:
+        token.pause({"from": accounts[1]})
+        assert "must have pause role to pause" in str(excinfo)
+
+    with pytest.raises(brownie.exceptions.VirtualMachineError) as excinfo:
+        token.unpause({"from": accounts[1]})
+        assert "must have pause role to pause" in str(excinfo)

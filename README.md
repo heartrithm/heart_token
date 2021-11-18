@@ -1,4 +1,4 @@
-# HEART token
+# HEART token 💓
 
 [![CircleCI](https://circleci.com/gh/heartrithm/heart_token.svg?style=svg)](https://circleci.com/gh/heartrithm/heart_token)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
@@ -19,27 +19,18 @@ The HEART ERC20 governance token was created for directing the flow of social im
 
 HeartRithm aims to be a "regenerative engine for social impact" by scaling up to 50% of our revenues to be driven to social impact causes.
 
+### Technical notes
+
+* We use [OpenZeppelin](https://openzeppelin.com/)'s standard libraries for ERC20 functionality, version 4.2
+* We also use OpenZeppelins implementation of ERC20Votes was use for the governance functionality
+* We chose to use the "COMP" compatible version, ERC20VotesComp, to be be compatible with industry tooling
+
 ## Contract details
 
-* [Contract on Etherscan](https://etherscan.io/token/0xa0ab59f5911dd47d774719504ca195474cdaf3fa)
-* [Source Code](contracts/HeartRithm.sol)
-* [Contract Owner](https://etherscan.io/address/0x4ea127d58ceb19346a1bdeb2a2a1b09bfd83d04d)
+* [HEART Token Contract on Etherscan](https://etherscan.io/token/0x01ede4853171324d8040180c010a29c521bdb6cc)
+* [HEART Token Source Code](contracts/HeartToken.sol)
+* [HEART Token Contract Owner](https://etherscan.io/address/0x4Ea12717Ca435CCF7c2b017569C0be0F1A635f39)
 
-### TODO
-
-* [x] Deploy on MainNet
-* [x] Verify ownership on Etherscan
-* [x] Verify contract on Etherscan
-* [x] Add [Contract Metadata](https://info.etherscan.com/how-to-update-token-information-on-token-page/) (symbol, icon) on Etherscan (submitted 6/23)
-
-#### Funding phase
-* [ ] Create Liquidity Pools on Dexes (note this establishes price, based on how much liquidity is added on either side of the pool)
-    * Uniswap
-    * Sushiswap
-
-#### Listings
-* [ ] Coingecko
-* [ ] Coinmarketcap
 
 ## Development
 
@@ -55,6 +46,16 @@ Node/Ganache
 
 1. Install node / npm (via [nvm](https://github.com/nvm-sh/nvm) recommended)
 1. Install [ganache](https://www.trufflesuite.com/ganache) for a local blockchain (`npm install -g ganache-cli`)
+
+#### Formatting/linting
+
+Install prettier with `npm install -g prettier prettier-plugin-solidity`
+
+`prettier --write $Contract.sol`
+
+Install solhint with `npm install -g solhint`
+
+`solhint $Contract.sol`
 
 #### Brownie
 
