@@ -26,7 +26,7 @@ contract HeartToken is ERC20VotesComp, AccessControlEnumerable, Pausable {
 
     About HeartRithm
     HeartRithm turns code into money in the cryptocurrency ecosystem. We use a combination of algorithmic trading,
-    autmated cde robots, and other internal platforms for optimizing yield and generating alpha.
+    automated cde robots, and other internal platforms for optimizing yield and generating alpha.
 
     HeartRithm aims to be a "regenerative engine for social impact" by scaling up to 50% of our revenues to be driven
     to social impact causes.
@@ -34,7 +34,7 @@ contract HeartToken is ERC20VotesComp, AccessControlEnumerable, Pausable {
     @dev
     Technical notes:
     * We use OpenZeppelin's standard libraries for ERC20 functionality, version 4.2
-    * We also use OpenZeppelin's implementation of ERC20Votes was use for the governance functionality
+    * We also use OpenZeppelin's implementation of ERC20Votes for the governance functionality
     * We chose to use the "COMP" compatible version, ERC20VotesComp, to be be compatible with industry tooling
     */
 
