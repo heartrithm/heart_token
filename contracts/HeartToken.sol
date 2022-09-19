@@ -18,7 +18,7 @@ contract HeartToken is ERC20VotesComp, AccessControlEnumerable, Pausable {
     /**
     @title HeartRithm HEART token
     @author Nick Sullivan
-    @notice 
+    @notice
 
     The HEART ERC20 governance token was created for directing the flow of social impact resources from HeartRithm's
     regenerative engine for social impact. Token holders will be able to submit philanthropic projects to be considered
@@ -31,7 +31,7 @@ contract HeartToken is ERC20VotesComp, AccessControlEnumerable, Pausable {
     HeartRithm aims to be a "regenerative engine for social impact" by scaling up to 50% of our revenues to be driven
     to social impact causes.
 
-    @dev 
+    @dev
     Technical notes:
     * We use OpenZeppelin's standard libraries for ERC20 functionality, version 4.2
     * We also use OpenZeppelin's implementation of ERC20Votes was use for the governance functionality
