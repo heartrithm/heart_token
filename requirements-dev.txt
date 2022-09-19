@@ -1,4 +1,4 @@
 -r requirements.txt
+flake8
 pip-tools
 pre-commit
-flake8

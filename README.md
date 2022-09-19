@@ -38,7 +38,7 @@ HeartRithm aims to be a "regenerative engine for social impact" by scaling up to
 
 Python
 
-1. Set up the python virtual env of your choice
+1. Set up the python virtual env of your choice. Tested with Python 3.9
 1. `pip install -r requirements-dev.txt`
 1. Set up git pre-commit hooks with `pre-commit install`
 
